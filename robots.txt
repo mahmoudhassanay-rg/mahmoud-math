@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mahmoudhassanay-rg.github.io/mahmoud-math/sitemap.xml

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Math Tools – Binomial Quiz, Grapher, Matrix Calculator, Unit Circle</title>
+  <meta name="title-ar" content="أدوات رياضيات تفاعلية – اختبار ذات الحدين، رسم الدوال، المصفوفات، دائرة الوحدة">
+  <meta name="description" content="Free interactive maths tools: a binomial theorem quiz with instant feedback, a function grapher, a matrix calculator and a trigonometry unit circle explorer.">
+  <meta name="keywords" content="binomial theorem quiz, function grapher, matrix calculator, unit circle explorer, online math tools, math teacher Giza, Secondary 2 math, IGCSE math tutor, مدرس رياضيات الجيزة, رياضيات تانية ثانوي">
+  <meta name="author" content="Mahmoud Hassan">
+  <link rel="canonical" href="https://mahmoudhassanay-rg.github.io/mahmoud-math/tools.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Interactive Math Tools – Binomial Quiz, Grapher, Matrix Calculator, Unit Circle">
+  <meta property="og:description" content="Free interactive maths tools: a binomial theorem quiz with instant feedback, a function grapher, a matrix calculator and a trigonometry unit circle explorer.">
+  <meta property="og:url" content="https://mahmoudhassanay-rg.github.io/mahmoud-math/tools.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_EG">
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/lang-init.js"></script>
+</head>
+<body data-page="tools">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <h1><span class="en">Interactive Tools</span><span class="ar">أدوات تفاعلية</span></h1>
+      <p><span class="en">Practise and explore: a binomial theorem quiz, a function grapher, a matrix calculator and a unit circle explorer.</span><span class="ar">اتدرّب واستكشف: اختبار نظرية ذات الحدين، رسم الدوال، آلة حاسبة للمصفوفات، ومستكشف دائرة الوحدة.</span></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="tool-tabs" role="tablist" aria-label="Tools">
+        <button class="tool-tab" role="tab" id="tab-quiz" aria-controls="quiz" aria-selected="true">🎯 <span class="en">Binomial quiz</span><span class="ar">اختبار ذات الحدين</span></button>
+        <button class="tool-tab" role="tab" id="tab-grapher" aria-controls="grapher" aria-selected="false">📈 <span class="en">Function grapher</span><span class="ar">رسم الدوال</span></button>
+        <button class="tool-tab" role="tab" id="tab-matrix" aria-controls="matrix" aria-selected="false">🔢 <span class="en">Matrix calculator</span><span class="ar">آلة المصفوفات</span></button>
+        <button class="tool-tab" role="tab" id="tab-unit-circle" aria-controls="unit-circle" aria-selected="false">⭕ <span class="en">Unit circle</span><span class="ar">دائرة الوحدة</span></button>
+      </div>
+
+      <!-- ===== Binomial quiz ===== -->
+      <div class="tool-panel active" id="quiz" role="tabpanel" aria-labelledby="tab-quiz">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap" class="mb-1">
+            <h2 class="mb-0"><span class="en">Binomial theorem quiz</span><span class="ar">اختبار نظرية ذات الحدين</span></h2>
+            <span class="tag" id="quiz-score"></span>
+          </div>
+          <div class="progress mb-1" aria-hidden="true"><div id="quiz-progress"></div></div>
+          <div id="quiz-body"></div>
+        </div>
+      </div>
+
+      <!-- ===== Function grapher ===== -->
+      <div class="tool-panel" id="grapher" role="tabpanel" aria-labelledby="tab-grapher">
+        <div class="grapher-layout">
+          <div class="card">
+            <h2 class="mb-1"><span class="en">Function grapher</span><span class="ar">رسم الدوال</span></h2>
+            <div id="fn-list"></div>
+            <div class="btn-row mb-1">
+              <button class="btn btn-ghost btn-sm" id="fn-add" type="button">+ <span class="en">Add function</span><span class="ar">أضف دالة</span></button>
+            </div>
+            <p class="hint"><span class="en">Examples:</span><span class="ar">أمثلة:</span> <code dir="ltr">x^2 - 4</code> <code dir="ltr">2sin(x)</code> <code dir="ltr">|x-1|</code> <code dir="ltr">ln(x)</code> <code dir="ltr">2^x</code> <code dir="ltr">sqrt(x+3)</code></p>
+            <p class="hint"><span class="en">Angles are in radians (use <code>pi</code>). Drag to move, scroll or use the buttons to zoom.</span><span class="ar">الزوايا بالراديان (استخدم <code>pi</code>). اسحب لتحريك الرسم، واستخدم عجلة الفأرة أو الأزرار للتكبير.</span></p>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" id="zoom-in" type="button" aria-label="Zoom in">＋</button>
+              <button class="btn btn-ghost btn-sm" id="zoom-out" type="button" aria-label="Zoom out">－</button>
+              <button class="btn btn-ghost btn-sm" id="zoom-reset" type="button"><span class="en">Reset view</span><span class="ar">إعادة الضبط</span></button>
+              <button class="btn btn-ghost btn-sm" id="trig-view" type="button"><span class="en">Trig view</span><span class="ar">عرض مثلثي</span></button>
+            </div>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="graph" aria-label="Graph of the functions"></canvas>
+            <div class="coord-readout" id="coord">x: 0, y: 0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Matrix calculator ===== -->
+      <div class="tool-panel" id="matrix" role="tabpanel" aria-labelledby="tab-matrix">
+        <div class="card">
+          <h2 class="mb-1"><span class="en">Matrix calculator</span><span class="ar">آلة حاسبة للمصفوفات</span></h2>
+          <div class="matrix-layout">
+            <div>
+              <div class="size-select mb-1">
+                <strong>A</strong>
+                <select id="a-rows" aria-label="Rows of A"></select> × <select id="a-cols" aria-label="Columns of A"></select>
+              </div>
+              <div class="matrix-input" id="a-grid"></div>
+            </div>
+            <div>
+              <div class="size-select mb-1">
+                <strong>B</strong>
+                <select id="b-rows" aria-label="Rows of B"></select> × <select id="b-cols" aria-label="Columns of B"></select>
+              </div>
+              <div class="matrix-input" id="b-grid"></div>
+            </div>
+          </div>
+          <div class="btn-row mt-2">
+            <button class="btn btn-primary btn-sm" data-op="add" type="button">A + B</button>
+            <button class="btn btn-primary btn-sm" data-op="sub" type="button">A − B</button>
+            <button class="btn btn-primary btn-sm" data-op="mul" type="button">A × B</button>
+            <button class="btn btn-outline btn-sm" data-op="detA" type="button">|A|</button>
+            <button class="btn btn-outline btn-sm" data-op="invA" type="button">A<sup>−1</sup></button>
+            <button class="btn btn-outline btn-sm" data-op="tA" type="button">A<sup>T</sup></button>
+            <button class="btn btn-outline btn-sm" data-op="sqA" type="button">A<sup>2</sup></button>
+            <span class="size-select"><button class="btn btn-outline btn-sm" data-op="kA" type="button">k × A</button><input id="k-val" type="number" value="2" style="width:80px" aria-label="k"></span>
+            <button class="btn btn-ghost btn-sm" id="m-clear" type="button"><span class="en">Clear</span><span class="ar">مسح</span></button>
+          </div>
+          <div class="mt-2" id="m-result" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- ===== Unit circle ===== -->
+      <div class="tool-panel" id="unit-circle" role="tabpanel" aria-labelledby="tab-unit-circle">
+        <div class="card">
+          <h2 class="mb-1"><span class="en">Trigonometry unit circle explorer</span><span class="ar">مستكشف دائرة الوحدة</span></h2>
+          <div class="uc-layout">
+            <svg class="uc-svg" id="uc-svg" viewBox="-1.35 -1.35 2.7 2.7" aria-label="Unit circle"></svg>
+            <div>
+              <label for="uc-angle"><span class="en">Angle θ (degrees)</span><span class="ar">الزاوية θ (بالدرجات)</span>: <span id="uc-deg" class="ltr">30°</span></label>
+              <input type="range" id="uc-angle" min="0" max="360" step="1" value="30">
+              <p class="hint"><span class="en">Drag the point on the circle or use the slider.</span><span class="ar">اسحب النقطة على الدائرة أو استخدم المؤشر.</span></p>
+              <div class="special-angles mb-1" id="uc-special"></div>
+              <div class="uc-values" id="uc-values"></div>
+              <p class="small muted mt-1" id="uc-note"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/data/binomial-quiz.js"></script>
+<script src="assets/js/tools/expr.js"></script>
+<script src="assets/js/tools/matrix-core.js"></script>
+<script src="assets/js/tools/trig-exact.js"></script>
+<script src="assets/js/pages/tools.js"></script>
+</body>
+</html>
