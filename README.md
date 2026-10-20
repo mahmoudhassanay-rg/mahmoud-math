@@ -19,7 +19,7 @@ Plain HTML, CSS and JavaScript, so there's no build step. It is ready for **GitH
 | Testimonials & Results | `testimonials.html` |
 | Blog list + sample article | `blog.html`, `blog-sec2-final-study-guide.html` |
 | FAQ | `faq.html` |
-| Contact + newsletter | `contact.html` |
+| Contact + "Get updates" sign-up | `contact.html` |
 
 Most of the content you'll want to change lives in **`assets/js/config.js`** and the files in **`assets/js/data/`**.
 You can edit them on GitHub: open the file, click the ✏️ pencil, make the change, then click **Commit changes**.
@@ -30,13 +30,13 @@ The live site updates about a minute later.
 
 ---
 
-## 1. Change the WhatsApp number, Google Form link and YouTube channel
+## 1. Change the WhatsApp number, YouTube channel and "Get updates" sign-up
 
 Open **`assets/js/config.js`**:
 
 ```js
 whatsappNumber: "20XXXXXXXXXX",                        // ← your number
-newsletterFormUrl: "https://forms.gle/YOUR-GOOGLE-FORM-ID",  // ← your Google Form
+newsletterFormUrl: "",          // "" = sign up via WhatsApp, or paste a Google Form link
 youtubeChannelUrl: "https://www.youtube.com/@YOUR-CHANNEL",  // ← your channel
 email: "",        // optional, shown on the Contact page if filled in
 facebookUrl: "",  // optional
@@ -44,9 +44,11 @@ facebookUrl: "",  // optional
 
 - **WhatsApp number**: use the international format with digits only and no `+`.
   An Egyptian mobile `010 1234 5678` becomes `"201012345678"` (drop the first `0`, add `20`).
-- **Google Form**: create the form, click **Send → 🔗 link**, copy the link and paste it here.
+- **"Get updates" button**: while `newsletterFormUrl` is `""`, the button opens WhatsApp with a ready message
+  ("please add me to your updates list… Name / Grade / Curriculum"). Save those contacts and send updates with a
+  WhatsApp Broadcast list or Channel. To use a Google Form instead, create it, click **Send → 🔗 link**, and paste the link here.
 
-Every WhatsApp, YouTube and newsletter button on the site uses these values, including the booking form and the floating WhatsApp button.
+Every WhatsApp, YouTube and "Get updates" button on the site uses these values, including the booking form and the floating WhatsApp button.
 
 ## 2. Edit the weekly schedule
 

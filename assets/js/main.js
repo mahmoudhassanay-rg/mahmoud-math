@@ -47,7 +47,13 @@
     return "https://wa.me/" + n + (text ? "?text=" + encodeURIComponent(text) : "");
   }
 
-  window.Site = { esc: esc, bi: bi, t: t, lang: lang, waLink: waLink, config: CFG };
+  // "Get updates" sign-up: Google Form if one is set, otherwise a WhatsApp message.
+  function updatesLink() {
+    return CFG.newsletterFormUrl ||
+      waLink("Hello Mr. Mahmoud, please add me to your updates list (new videos, groups and exams).\nName: \nGrade: \nCurriculum: ");
+  }
+
+  window.Site = { esc: esc, bi: bi, t: t, lang: lang, waLink: waLink, updatesLink: updatesLink, config: CFG };
 
   // ---------- Header ----------
   var page = document.body.getAttribute("data-page") || "";
@@ -109,7 +115,7 @@
           '<div class="btn-row">' +
             '<a class="btn btn-whatsapp btn-sm" href="' + waLink() + '" target="_blank" rel="noopener">WhatsApp</a>' +
             '<a class="btn btn-youtube btn-sm" href="' + esc(CFG.youtubeChannelUrl) + '" target="_blank" rel="noopener">YouTube</a>' +
-            '<a class="btn btn-light btn-sm" href="' + esc(CFG.newsletterFormUrl) + '" target="_blank" rel="noopener">' + bi({ en: "Newsletter", ar: "النشرة البريدية" }) + "</a>" +
+            '<a class="btn btn-light btn-sm" href="' + esc(updatesLink()) + '" target="_blank" rel="noopener">' + bi({ en: "Get updates", ar: "تابع الجديد" }) + "</a>" +
           "</div>" +
         "</div>" +
         "<div><h4>" + bi({ en: "Learn", ar: "تعلّم" }) + '</h4><ul class="footer-links">' +
@@ -147,7 +153,7 @@
       var k = a.getAttribute("data-link");
       if (k === "whatsapp") a.href = waLink(a.getAttribute("data-wa-text") || "");
       if (k === "youtube") a.href = CFG.youtubeChannelUrl;
-      if (k === "newsletter") a.href = CFG.newsletterFormUrl;
+      if (k === "newsletter") a.href = updatesLink();
       if (k === "email") {
         if (CFG.email) { a.href = "mailto:" + CFG.email; a.textContent = CFG.email; }
         else { var row = a.closest("[data-hide-if-empty]"); if (row) row.style.display = "none"; }

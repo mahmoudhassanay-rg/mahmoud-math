@@ -6,8 +6,10 @@ window.SITE_CONFIG = {
   // Example for an Egyptian mobile 010 1234 5678  ->  "201012345678"
   whatsappNumber: "201124225005",
 
-  // Google Form used for the newsletter sign-up button (Contact page + footer).
-  newsletterFormUrl: "https://forms.gle/YOUR-GOOGLE-FORM-ID",
+  // "Get updates" button (Contact page + footer).
+  // Leave "" to sign people up through WhatsApp (a ready-made message opens).
+  // To use a Google Form instead, paste its link here, e.g. "https://forms.gle/abc123".
+  newsletterFormUrl: "",
 
   // Your YouTube channel link (used by every "Watch on YouTube" button).
   youtubeChannelUrl: "https://www.youtube.com/@mathwithmahmoud",
